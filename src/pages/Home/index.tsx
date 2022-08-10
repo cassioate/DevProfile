@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Header, UserAvatar, UserAvatarButton, UserGreeting, UserInfo, UserInfoDetail, UserName, UserWrapper} from './home-styles'
+import {Container, Header, IconPower, UserAvatar, UserAvatarButton, UserGreeting, UserInfo, UserInfoDetail, UserName, UserWrapper} from './home-styles'
 
 import avatarDefault from '../../assets/avatar02.png'
 
@@ -17,6 +17,8 @@ export const Home = () => {
               <UserName>João</UserName>
             </UserInfoDetail>
           </UserInfo>
+
+          <IconPower name='power' />
         </UserWrapper>
       </Header>
     </Container>
