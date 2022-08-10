@@ -1,10 +1,24 @@
 import React from 'react'
-import {Container, Title} from './home-styles'
+import {Container, Header, UserAvatar, UserAvatarButton, UserGreeting, UserInfo, UserInfoDetail, UserName, UserWrapper} from './home-styles'
+
+import avatarDefault from '../../assets/avatar02.png'
 
 export const Home = () => {
   return (
     <Container>
-      <Title>Teste</Title>
+      <Header>
+        <UserWrapper>
+          <UserInfo>
+            <UserAvatarButton onPress={() => null}>
+              <UserAvatar source={avatarDefault} />
+            </UserAvatarButton>
+            <UserInfoDetail>
+              <UserGreeting>Olá, </UserGreeting>
+              <UserName>João</UserName>
+            </UserInfoDetail>
+          </UserInfo>
+        </UserWrapper>
+      </Header>
     </Container>
   );
 }
