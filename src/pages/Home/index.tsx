@@ -1,7 +1,19 @@
-import React from 'react'
-import {Container, Header, IconPower, UserAvatar, UserAvatarButton, UserGreeting, UserInfo, UserInfoDetail, UserName, UserWrapper} from './home-styles'
+import React from 'react';
+import {
+  Container,
+  Header,
+  IconPower,
+  UserAvatar,
+  UserAvatarButton,
+  UserGreeting,
+  UserInfo,
+  UserInfoDetail,
+  UserName,
+  UserWrapper,
+} from './home-styles';
 
-import avatarDefault from '../../assets/avatar02.png'
+import avatarDefault from '../../assets/avatar02.png';
+import { Input } from '../../components/form/Input/input';
 
 export const Home = () => {
   return (
@@ -17,10 +29,10 @@ export const Home = () => {
               <UserName>João</UserName>
             </UserInfoDetail>
           </UserInfo>
-
-          <IconPower name='power' />
+          <IconPower name="power" />
         </UserWrapper>
       </Header>
+      <Input placeholder="teste"></Input>
     </Container>
   );
-}
+};

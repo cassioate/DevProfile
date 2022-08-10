@@ -54,7 +54,7 @@ export const UserName = styled.Text`
 `;
 
 export const IconPower = styled(Feather)`
-  font-size: 24px;
+  font-size: 28px;
   color: ${theme.colors.dark};
 `;
 
