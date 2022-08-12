@@ -15,8 +15,15 @@ import {
 } from './sign-in-styles';
 
 import ImageLogo from '../../assets/logo.png';
+import { useNavigation } from '@react-navigation/native';
+
+interface ScreenNavigationProp {
+  navigate: (route: string) => void;
+}
 
 export const SignIn = () => {
+  const navigation = useNavigation<ScreenNavigationProp>();
+
   return (
     // <> <- is empty because the react not accept two root elements, só i need use this
     <>
@@ -47,7 +54,7 @@ export const SignIn = () => {
           </Container>
         </ScrollView>
 
-        <CreateAccount>
+        <CreateAccount onPress={() => navigation.navigate('SignUp')}>
           <Icon name="log-in" />
           <CreateAccountText>Create an account</CreateAccountText>
         </CreateAccount>

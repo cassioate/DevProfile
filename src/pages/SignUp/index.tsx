@@ -13,8 +13,11 @@ import {
 } from './sign-up-styles';
 
 import ImageLogo from '../../assets/logo.png';
+import { useNavigation } from '@react-navigation/native';
 
 export const SignUp = () => {
+  const navigation = useNavigation();
+
   return (
     <KeyboardAvoidingView
       enabled
@@ -39,7 +42,7 @@ export const SignUp = () => {
         </Container>
       </ScrollView>
 
-      <ReturnButton>
+      <ReturnButton onPress={() => navigation.goBack()}>
         <Icon name="corner-down-left" />
         <ReturnButtonText>BACK</ReturnButtonText>
       </ReturnButton>
