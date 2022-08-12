@@ -13,7 +13,6 @@ import {
 } from './home-styles';
 
 import avatarDefault from '../../assets/avatar02.png';
-import { Input } from '../../components/form/Input/input';
 
 export const Home = () => {
   return (
@@ -32,7 +31,6 @@ export const Home = () => {
           <IconPower name="power" />
         </UserWrapper>
       </Header>
-      <Input placeholder="teste"></Input>
     </Container>
   );
 };

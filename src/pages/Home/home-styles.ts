@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 import { theme } from '../../global/styles/theme';
 import { Feather } from '@expo/vector-icons';
 
@@ -20,7 +20,7 @@ export const Header = styled.View`
 
 export const UserWrapper = styled.View`
   width: 100%;
-  padding: 0 24px;
+  padding: 0px 24px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -57,4 +57,3 @@ export const IconPower = styled(Feather)`
   font-size: 28px;
   color: ${theme.colors.dark};
 `;
-
