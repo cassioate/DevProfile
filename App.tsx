@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { Home } from './src/pages/Home';
 import { SignIn } from './src/pages/SignIn';
 import { SignUp } from './src/pages/SignUp';
+import { NavigationContainer } from '@react-navigation/native';
 
 export const App = () => {
   SplashScreen.preventAutoHideAsync();
@@ -20,7 +21,13 @@ export const App = () => {
   SplashScreen.hideAsync();
 
   // return <Home />;
-  return <SignUp></SignUp>;
+  return (
+    <NavigationContainer>
+      <Home />
+    </NavigationContainer>
+  );
+
+  // <SignUp></SignUp>;
   // return <SignIn></SignIn>;
 };
 
