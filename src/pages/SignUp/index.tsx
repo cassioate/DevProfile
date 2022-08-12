@@ -2,9 +2,9 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import { ButtonStyled } from '../../components/form/button/button';
 import { Input } from '../../components/form/Input/input';
-import { Container, Content, Title } from './sign-in-styles';
+import { Container, Content, Title } from './sign-up-styles';
 
-export const SignIn = () => {
+export const SignUp = () => {
   return (
     <ScrollView
       //KeyboardShouldPersistTaps="handled" means that when i click outside of the input, the keyboard will be dismissed
@@ -14,10 +14,11 @@ export const SignIn = () => {
     >
       <Container>
         <Content>
-          <Title>Logon</Title>
+          <Title>Register</Title>
           <Input placeholder="Email"></Input>
           <Input placeholder="Password"></Input>
-          <ButtonStyled title="Login"></ButtonStyled>
+          <Input placeholder="Password Confirmation"></Input>
+          <ButtonStyled title="Send"></ButtonStyled>
         </Content>
       </Container>
     </ScrollView>

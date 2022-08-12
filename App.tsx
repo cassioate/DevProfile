@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 
 import { Home } from './src/pages/Home';
 import { SignIn } from './src/pages/SignIn';
+import { SignUp } from './src/pages/SignUp';
 
 export const App = () => {
   SplashScreen.preventAutoHideAsync();
@@ -19,7 +20,8 @@ export const App = () => {
   SplashScreen.hideAsync();
 
   // return <Home />;
-  return <SignIn></SignIn>;
+  return <SignUp></SignUp>;
+  // return <SignIn></SignIn>;
 };
 
 export default App;

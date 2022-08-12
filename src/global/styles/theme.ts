@@ -1,9 +1,9 @@
-import { Roboto_400Regular, Roboto_700Bold_Italic } from "@expo-google-fonts/roboto";
+import { Roboto_400Regular, Roboto_700Bold_Italic } from '@expo-google-fonts/roboto';
 
 export const theme = {
   colors: {
     black: '#000',
-    white:  '#fff',
+    white: '#fff',
     primary: '#eba417',
     primaryLight: '#ffdb77',
     secondary: '#79c7ff',
@@ -12,11 +12,11 @@ export const theme = {
     dark: '#121214',
     light: '#f1f1f1',
     gray500: '#a8a8b3',
-    gray800: '#29292e'
+    gray800: '#29292e',
   },
 
   fonts: {
     regular: 'Roboto_400Regular',
-    bold: 'Roboto_700Bold'
-  }
-}
+    bold: 'Roboto_700Bold',
+  },
+};
