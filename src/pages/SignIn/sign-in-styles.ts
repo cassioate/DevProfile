@@ -20,3 +20,19 @@ export const Title = styled.Text`
   color: ${theme.colors.light};
   margin-bottom: 24px;
 `;
+
+export const Logo = styled.Image`
+  width: 160px;
+  height: 160px;
+  margin-bottom: 64px;
+`;
+
+export const ForgotPasswordButton = styled.TouchableOpacity`
+  margin-top: 24px;
+`;
+
+export const ForgotPasswordText = styled.Text`
+  font-family: ${theme.fonts.regular};
+  color: ${theme.colors.light};
+  font-size: 14px;
+`;

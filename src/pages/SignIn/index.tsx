@@ -2,7 +2,16 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import { ButtonStyled } from '../../components/form/button/button';
 import { Input } from '../../components/form/Input/input';
-import { Container, Content, Title } from './sign-in-styles';
+import {
+  Container,
+  Content,
+  ForgotPasswordButton,
+  ForgotPasswordText,
+  Logo,
+  Title,
+} from './sign-in-styles';
+
+import ImageLogo from '../../assets/logo.png';
 
 export const SignIn = () => {
   return (
@@ -14,10 +23,15 @@ export const SignIn = () => {
     >
       <Container>
         <Content>
+          <Logo source={ImageLogo}></Logo>
           <Title>Logon</Title>
           <Input placeholder="Email"></Input>
           <Input placeholder="Password"></Input>
           <ButtonStyled title="Login"></ButtonStyled>
+
+          <ForgotPasswordButton>
+            <ForgotPasswordText>Forgot your password?</ForgotPasswordText>
+          </ForgotPasswordButton>
         </Content>
       </Container>
     </ScrollView>
