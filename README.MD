@@ -11,3 +11,5 @@
 
 (AppLoading) to keep the splash screen visible while the AppLoading component is mounted DOC: https://docs.expo.dev/versions/latest/sdk/app-loading/
 OBS: AppLoading Deprecated. Use expo-splash-screen directly instead
+
+(Forms) React Hook Form DOC: https://react-hook-form.com
