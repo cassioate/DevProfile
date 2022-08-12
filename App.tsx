@@ -1,12 +1,9 @@
 import React from 'react';
-
 import { Roboto_400Regular, Roboto_700Bold, useFonts } from '@expo-google-fonts/roboto';
-import * as SplashScreen from 'expo-splash-screen';
 
-import { Home } from './src/pages/Home';
-import { SignIn } from './src/pages/SignIn';
-import { SignUp } from './src/pages/SignUp';
 import { NavigationContainer } from '@react-navigation/native';
+import * as SplashScreen from 'expo-splash-screen';
+import { Routes } from './src/routes';
 
 export const App = () => {
   SplashScreen.preventAutoHideAsync();
@@ -20,15 +17,11 @@ export const App = () => {
   }
   SplashScreen.hideAsync();
 
-  // return <Home />;
   return (
     <NavigationContainer>
-      <Home />
+      <Routes />
     </NavigationContainer>
   );
-
-  // <SignUp></SignUp>;
-  // return <SignIn></SignIn>;
 };
 
 export default App;
