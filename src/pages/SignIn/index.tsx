@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
+import { ButtonStyled } from '../../components/form/button/button';
 import { Input } from '../../components/form/Input/input';
 import { Container, Content, Title } from './sign-in-styles';
 
@@ -16,6 +17,7 @@ export const SignIn = () => {
           <Title>Logon</Title>
           <Input placeholder="Email"></Input>
           <Input placeholder="Senha"></Input>
+          <ButtonStyled title="Login"></ButtonStyled>
         </Content>
       </Container>
     </ScrollView>
