@@ -38,7 +38,7 @@ export const ForgotPasswordText = styled.Text`
   font-size: 14px;
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(Feather as any)`
   font-size: 20px;
   color: ${theme.colors.primary};
 `;

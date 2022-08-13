@@ -28,7 +28,7 @@ export const Logo = styled.Image`
   margin-bottom: 64px;
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(Feather as any)`
   font-size: 20px;
   color: ${theme.colors.primary};
 `;

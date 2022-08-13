@@ -1,7 +1,6 @@
 import React from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { ButtonStyled } from '../../components/form/button/button';
-import { Input } from '../../components/form/Input/input';
 import {
   Container,
   Content,
@@ -16,13 +15,31 @@ import {
 
 import ImageLogo from '../../assets/logo.png';
 import { useNavigation } from '@react-navigation/native';
+import { InputHookControl } from '../../components/form/Input-hook/input';
+import { FieldValues, useForm } from 'react-hook-form';
 
 interface ScreenNavigationProp {
   navigate: (route: string) => void;
 }
 
+// the interface needs to be the same as the type of the FieldValues type in the UseForm() hook
+// because of this, i use [name: string]: any as a type of InputFormHook
+interface InputFormHook {
+  // this mean that i can receive more than one atribute
+  // i can receive email, name, password, etc... with this type of interface
+  [name: string]: any;
+}
 export const SignIn = () => {
   const navigation = useNavigation<ScreenNavigationProp>();
+  const { control, handleSubmit } = useForm<FieldValues>();
+
+  const handleSignIn = (form: InputFormHook) => {
+    const data = {
+      email: form.email as unknown as string,
+      password: form.password as unknown as string,
+    };
+    console.log(data);
+  };
 
   return (
     // <> <- is empty because the react not accept two root elements, só i need use this
@@ -43,9 +60,24 @@ export const SignIn = () => {
             <Content>
               <Logo source={ImageLogo}></Logo>
               <Title>Logon</Title>
-              <Input placeholder="Email"></Input>
-              <Input placeholder="Password"></Input>
-              <ButtonStyled title="Login"></ButtonStyled>
+              <InputHookControl
+                name="email"
+                control={control}
+                autoCorrect={false}
+                autoCapitalize="none"
+                placeholder="Email"
+                keyboardType="email-address"
+              ></InputHookControl>
+              <InputHookControl
+                name="password"
+                control={control}
+                autoCorrect={false}
+                autoCapitalize="none"
+                placeholder="Password"
+                secureTextEntry
+              ></InputHookControl>
+
+              <ButtonStyled title="Login" onPress={handleSubmit(handleSignIn)}></ButtonStyled>
 
               <ForgotPasswordButton>
                 <ForgotPasswordText>Forgot your password?</ForgotPasswordText>
