@@ -62,6 +62,7 @@ export const SignIn = () => {
               <Logo source={ImageLogo}></Logo>
               <Title>Logon</Title>
               <InputHookControl
+                error="teste"
                 name="email"
                 control={control}
                 autoCorrect={false}
@@ -70,6 +71,7 @@ export const SignIn = () => {
                 keyboardType="email-address"
               ></InputHookControl>
               <InputHookControl
+                error="teste"
                 name="password"
                 control={control}
                 autoCorrect={false}
