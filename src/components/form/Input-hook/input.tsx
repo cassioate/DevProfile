@@ -7,7 +7,7 @@ import { Container, ErrorInput } from './input-styles';
 interface InputProps extends TextInputProps {
   control: Control;
   name: string;
-  error: string | undefined;
+  error: string | unknown;
 }
 
 export const InputHookControl: FunctionComponent<InputProps> = ({

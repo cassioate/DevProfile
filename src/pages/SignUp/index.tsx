@@ -55,6 +55,7 @@ export const SignUp = () => {
             <Logo source={ImageLogo}></Logo>
             <Title>Register</Title>
             <InputHookControl
+              error="teste"
               name="name"
               control={control}
               autoCorrect={false}
@@ -62,6 +63,7 @@ export const SignUp = () => {
               placeholder="Name"
             ></InputHookControl>
             <InputHookControl
+              error="teste"
               name="email"
               control={control}
               autoCorrect={false}
@@ -70,6 +72,7 @@ export const SignUp = () => {
               keyboardType="email-address"
             ></InputHookControl>
             <InputHookControl
+              error="teste"
               name="password"
               control={control}
               autoCorrect={false}

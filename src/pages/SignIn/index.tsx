@@ -17,6 +17,13 @@ import ImageLogo from '../../assets/logo.png';
 import { useNavigation } from '@react-navigation/native';
 import { InputHookControl } from '../../components/form/Input-hook/input';
 import { FieldValues, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+const formSchema = yup.object({
+  email: yup.string().required('Inform um email').email('Informe um email valido'),
+  password: yup.string().required('Informe uma senha'),
+});
 
 interface ScreenNavigationProp {
   navigate: (route: string) => void;
@@ -32,7 +39,13 @@ interface InputFormHook {
 
 export const SignIn = () => {
   const navigation = useNavigation<ScreenNavigationProp>();
-  const { control, handleSubmit } = useForm<FieldValues>();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    resolver: yupResolver(formSchema),
+  });
 
   const handleSignIn = (form: InputFormHook) => {
     const data = {
@@ -62,7 +75,7 @@ export const SignIn = () => {
               <Logo source={ImageLogo}></Logo>
               <Title>Logon</Title>
               <InputHookControl
-                error="teste"
+                error={errors.email && errors.email.message}
                 name="email"
                 control={control}
                 autoCorrect={false}
@@ -71,7 +84,7 @@ export const SignIn = () => {
                 keyboardType="email-address"
               ></InputHookControl>
               <InputHookControl
-                error="teste"
+                error={errors.password && errors.password.message}
                 name="password"
                 control={control}
                 autoCorrect={false}
