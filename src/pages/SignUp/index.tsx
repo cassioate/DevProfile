@@ -14,9 +14,29 @@ import {
 
 import ImageLogo from '../../assets/logo.png';
 import { useNavigation } from '@react-navigation/native';
+import { FieldValues, useForm } from 'react-hook-form';
+import { InputHookControl } from '../../components/form/Input-hook/input';
+
+// the interface needs to be the same as the type of the FieldValues type in the UseForm() hook
+// because of this, i use [name: string]: any as a type of InputFormHook
+interface InputFormHook {
+  // this mean that i can receive more than one atribute
+  // i can receive email, name, password, etc... with this type of interface
+  [name: string]: any;
+}
 
 export const SignUp = () => {
   const navigation = useNavigation();
+  const { control, handleSubmit } = useForm<FieldValues>();
+
+  const handleSignUp = (form: InputFormHook) => {
+    const data = {
+      name: form.name,
+      email: form.email,
+      password: form.password,
+    };
+    console.log(data);
+  };
 
   return (
     <KeyboardAvoidingView
@@ -34,10 +54,30 @@ export const SignUp = () => {
           <Content>
             <Logo source={ImageLogo}></Logo>
             <Title>Register</Title>
-            <Input placeholder="Email"></Input>
-            <Input placeholder="Password"></Input>
-            <Input placeholder="Password Confirmation"></Input>
-            <ButtonStyled title="Send"></ButtonStyled>
+            <InputHookControl
+              name="name"
+              control={control}
+              autoCorrect={false}
+              autoCapitalize="words"
+              placeholder="Name"
+            ></InputHookControl>
+            <InputHookControl
+              name="email"
+              control={control}
+              autoCorrect={false}
+              autoCapitalize="none"
+              placeholder="Email"
+              keyboardType="email-address"
+            ></InputHookControl>
+            <InputHookControl
+              name="password"
+              control={control}
+              autoCorrect={false}
+              autoCapitalize="none"
+              placeholder="Password"
+              secureTextEntry
+            ></InputHookControl>
+            <ButtonStyled title="Send" onPress={handleSubmit(handleSignUp)}></ButtonStyled>
           </Content>
         </Container>
       </ScrollView>

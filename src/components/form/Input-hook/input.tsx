@@ -2,14 +2,20 @@ import React, { FunctionComponent } from 'react';
 import { Control, Controller } from 'react-hook-form';
 import { TextInputProps } from 'react-native';
 import { Input } from '../Input/input';
-import { Container } from './input-styles';
+import { Container, ErrorInput } from './input-styles';
 
 interface InputProps extends TextInputProps {
   control: Control;
   name: string;
+  error: string | undefined;
 }
 
-export const InputHookControl: FunctionComponent<InputProps> = ({ name, control, ...props }) => {
+export const InputHookControl: FunctionComponent<InputProps> = ({
+  name,
+  control,
+  error,
+  ...props
+}) => {
   return (
     <Container>
       <Controller
@@ -19,6 +25,7 @@ export const InputHookControl: FunctionComponent<InputProps> = ({ name, control,
         )}
         name={name}
       ></Controller>
+      {error && <ErrorInput>{error}</ErrorInput>}
     </Container>
   );
 };

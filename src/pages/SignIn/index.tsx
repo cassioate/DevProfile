@@ -29,14 +29,15 @@ interface InputFormHook {
   // i can receive email, name, password, etc... with this type of interface
   [name: string]: any;
 }
+
 export const SignIn = () => {
   const navigation = useNavigation<ScreenNavigationProp>();
   const { control, handleSubmit } = useForm<FieldValues>();
 
   const handleSignIn = (form: InputFormHook) => {
     const data = {
-      email: form.email as unknown as string,
-      password: form.password as unknown as string,
+      email: form.email,
+      password: form.password,
     };
     console.log(data);
   };
