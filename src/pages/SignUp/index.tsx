@@ -17,6 +17,15 @@ import { useNavigation } from '@react-navigation/native';
 import { FieldValues, useForm } from 'react-hook-form';
 import { InputHookControl } from '../../components/form/Input-hook/input';
 
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+const formSchema = yup.object({
+  name: yup.string().required('Informe um nome'),
+  email: yup.string().required('Inform um email').email('Informe um email valido'),
+  password: yup.string().required('Informe uma senha'),
+});
+
 // the interface needs to be the same as the type of the FieldValues type in the UseForm() hook
 // because of this, i use [name: string]: any as a type of InputFormHook
 interface InputFormHook {
@@ -27,7 +36,13 @@ interface InputFormHook {
 
 export const SignUp = () => {
   const navigation = useNavigation();
-  const { control, handleSubmit } = useForm<FieldValues>();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    resolver: yupResolver(formSchema),
+  });
 
   const handleSignUp = (form: InputFormHook) => {
     const data = {
@@ -55,7 +70,7 @@ export const SignUp = () => {
             <Logo source={ImageLogo}></Logo>
             <Title>Register</Title>
             <InputHookControl
-              error="teste"
+              error={errors.name && errors.name.message}
               name="name"
               control={control}
               autoCorrect={false}
@@ -63,7 +78,7 @@ export const SignUp = () => {
               placeholder="Name"
             ></InputHookControl>
             <InputHookControl
-              error="teste"
+              error={errors.email && errors.email.message}
               name="email"
               control={control}
               autoCorrect={false}
@@ -72,7 +87,7 @@ export const SignUp = () => {
               keyboardType="email-address"
             ></InputHookControl>
             <InputHookControl
-              error="teste"
+              error={errors.password && errors.password.message}
               name="password"
               control={control}
               autoCorrect={false}

@@ -17,6 +17,7 @@ import ImageLogo from '../../assets/logo.png';
 import { useNavigation } from '@react-navigation/native';
 import { InputHookControl } from '../../components/form/Input-hook/input';
 import { FieldValues, useForm } from 'react-hook-form';
+
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -52,6 +53,7 @@ export const SignIn = () => {
       email: form.email,
       password: form.password,
     };
+
     console.log(data);
   };
 
